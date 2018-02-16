@@ -10,7 +10,7 @@ pick = 0.5
 move = 1
 put = 0.5
 
-print("\n Give me the max height of a stack:")
+print("\n Give me the max height of a stack: ")
 height = input()
 print("\n Give me the initial location of containers:")
 print("\n Example (B, A); (C, D, E); () \n")
