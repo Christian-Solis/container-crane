@@ -40,18 +40,18 @@ stack2 = initial_list[2]
 # print(stack1)
 # print(stack2)
 
-class Node:
-    def __init__(Parent, Action, Path_Cost, State):
 
-def Action():
+# Calculate the actions
+def Action(state, height):
+
+
 
 def Prev_Path_Cost:
 
 def Prev_State:
 
-
-def Path_cost(Prev_Path_Cost):
-    ptc = Prev_Path_Cost + pick + move + put
+def Path_cost(Action):
+    cost = pick + put + abs(Action[0] - Action[1])
 
 def State(Prev_State):
     st = [stack0, stack1, stack2]
