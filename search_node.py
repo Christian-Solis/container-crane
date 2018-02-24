@@ -18,3 +18,5 @@ class Search_Node:
         parent = self
         # cost is the cost of the parent plus cost of the action
         cost = parent.cost + Path_cost
+
+    
