@@ -22,75 +22,77 @@ print("\n Give me the max height of a stack: ")
 height = input()
 print("\n Give me the initial location of containers:")
 print("\n Example (B, A); (C, D, E); () \n")
-initial = input()
+initial_input = input()
 print("\n Give me the goal state of the containers:")
 print("\n Example (A, C); X; X \n")
-goal = input()
+goal_input = input()
 print("\n")
+
+# -----------------------------------------------------------------------------
+# Parsing and cleaning process
+# -----------------------------------------------------------------------------
 
 # Clean initial string to get only the states
 def clean_initial_string():
     # split when a ';' is found
-    for replaced in inital.split(';'):
+    for initial_string_replaced in initial_input.split(';'):
         # → cleaning process
 
         # replace '(' ')' '' '' for empty space
-        replaced = cleaned.replace('(', '')
-        replaced = cleaned.replace(')', '')
-        replaced = cleaned.replace(' ', '')
+        initial_string_replaced = initial_string_replaced.replace('(', '')
+        initial_string_replaced = initial_string_replaced.replace(')', '')
+        initial_string_replaced = initial_string_replaced.replace(' ', '')
 
         input_string = []
         temp = []
 
         # split when a comma is found
-        for cleaned in replaced.split(','):
-            if cleaned == '';
+        for cleaned in initial_string_replaced.split(','):
+            if cleaned == '':
                 continue
             else:
                 temp.append(cleaned)
-
+        # fill the array
         input_string(temp)
 
+        # test ---
+        #print(input_string)
 
- # --- Incomplete ↓ ---
-
+        # return the array
+        return input_string
 
 # Clean goal string to compare later
 def clean_goal_string():
     # split when a ';' is found
-    for replaced in inital.split(';'):
+    for goal_string_replaced in goal_input.split(';'):
         # → cleaning process
 
         # replace '(' ')' '' '' for empty space
-        replaced = cleaned.replace('(', '')
-        replaced = cleaned.replace(')', '')
-        replaced = cleaned.replace(' ', '')
+        goal_string_replaced = goal_string_replaced.replace('(', '')
+        goal_string_replaced = goal_string_replaced.replace(')', '')
+        goal_string_replaced = goal_string_replaced.replace(' ', '')
 
-        input_string = []
-        temp = []
+        goal_string = []
+        temp2 = []
 
         # split when a comma is found
-        for cleaned in replaced.split(','):
-            if cleaned == '';
+        for cleaning in goal_string_replaced.split(','):
+            if cleaning == '':
                 continue
             else:
-                temp.append(cleaned)
+                temp2.append(cleaning)
+        # fill the array
+        goal_string(temp2)
 
-        input_string(temp)
+        # test ---
+        #print(goal_string)
 
+        # return the array
+        return goal_string
 
-
-# initial_list = initial.split(";")
-# goal_list = goal.split(";")
-
-stack0 = initial_list[0]
-stack1 = initial_list[1]
-stack2 = initial_list[2]
-
-# print(stack0)
-# print(stack1)
-# print(stack2)
-
+# -----------------------------------------------------------------------------
+# Actions
+# -----------------------------------------------------------------------------
 
 # Calculate the actions
 def Action(state, height):
