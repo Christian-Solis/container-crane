@@ -7,6 +7,7 @@
 # -----------------------------------------------------------------------------
 
 import sys
+import heapq
 
 # Movements with their cost
 pick = 0.5
@@ -59,6 +60,20 @@ def clean_goal_string(goal_input):
     return cont_stacks
 
 # -----------------------------------------------------------------------------
+# Comparison of state vs goal state
+# -----------------------------------------------------------------------------
+
+def comparison(initial_input, goal_input):
+	for elem in goal_input:
+        counter = 0
+		if elem != ['X']:
+			if initial_input[elem] == goal_input[elem]:
+				counter += 1
+	if counter == len(goal_input):
+		return True
+	return False
+
+# -----------------------------------------------------------------------------
 # # Uniform Cost Search
 # -----------------------------------------------------------------------------
 
@@ -68,11 +83,10 @@ def ucs(max_height, initial_input, goal_input, initial_cost):
     visited = []
 
     # Acumulated cost
-    acumulated_cost = initial_cost
+    acumulated_cost = Problem.cost_action()
 
     # Get the string parsed and cleaned into array
     current_state = clean_initial_string(initial_input)
-    print(current_state)
     # Get the goal string parsed and cleaned into array
     goal_state = clean_goal_string(goal_input)
 
@@ -83,7 +97,15 @@ def ucs(max_height, initial_input, goal_input, initial_cost):
 
     queue = [(acumulated_cost, current_state)]
 
-    #while queue:
+    while queue:
+
+	    acumulated_cost = heapq.heappop(queue)
+        current_state = heapq.heappop(queue)
+
+	 	if comparison(current_state, goal_state):
+
+
+
 
 # -----------------------------------------------------------------------------
 # Start
