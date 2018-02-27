@@ -106,8 +106,6 @@ def ucs(max_height, initial_input, goal_input, initial_cost):
 	 	if comparison(current_state, goal_state):
 
 
-
-
 # -----------------------------------------------------------------------------
 # Start
 # -----------------------------------------------------------------------------
