@@ -28,62 +28,62 @@ stacks_containers = []
 
 # Clean initial string to get only the states
 def clean_initial_string(initial_input):
+    input_without_spaces = initial_input.replace(' ', '')
+    cont_stacks = list()
     # split when a ';' is found
-    for initial_string_replaced in initial_input.split(';'):
-        # → cleaning process
-        # replace '(' ')' '' '' for empty space
-        initial_string_replaced = initial_string_replaced.replace('(', '')
-        initial_string_replaced = initial_string_replaced.replace(')', '')
-        initial_string_replaced = initial_string_replaced.replace(' ', '')
-
-        input_string = []
-        temp = []
-
-        # split when a comma is found
-        for cleaned in initial_string_replaced.split(','):
-            if cleaned == '':
-                continue
-            else:
-                temp.append(cleaned)
-
-        # fill the array
-        input_string.append(temp)
-
-    # test ---
-    #print(input_string)
-
-    # return the array
-    return input_string
+    stacks = input_without_spaces.split(';')
+    for st in stacks:
+        st = st.replace('(', '')
+        st = st.replace(')', '')
+        if st == '':
+            cont_stacks.append(list())
+        else:
+            containers = st.split(',')
+            cont_stacks.append(containers)
+    return cont_stacks
 
 # Clean goal string to compare later
 def clean_goal_string(goal_input):
+    input_without_spaces = initial_input.replace(' ', '')
+    cont_stacks = list()
     # split when a ';' is found
-    for goal_string_replaced in goal_input.split(';'):
-        # → cleaning process
-        # replace '(' ')' '' '' for empty space
-        goal_string_replaced = goal_string_replaced.replace('(', '')
-        goal_string_replaced = goal_string_replaced.replace(')', '')
-        goal_string_replaced = goal_string_replaced.replace(' ', '')
+    stacks = input_without_spaces.split(';')
+    for st in stacks:
+        st = st.replace('(', '')
+        st = st.replace(')', '')
+        if st == '':
+            cont_stacks.append(list())
+        else:
+            containers = st.split(',')
+            cont_stacks.append(containers)
+    return cont_stacks
 
-        goal_string = []
-        temp2 = []
+# -----------------------------------------------------------------------------
+# # Uniform Cost Search
+# -----------------------------------------------------------------------------
 
-        # split when a comma is found
-        for cleaning in goal_string_replaced.split(','):
-            if cleaning == '':
-                continue
-            else:
-                temp2.append(cleaning)
+def ucs(max_height, initial_input, goal_input, initial_cost):
+    # Queue and visited nodes
+    queue = []
+    visited = []
 
-        # fill the array
-        goal_string.append(temp2)
+    # Acumulated cost
+    acumulated_cost = initial_cost
+
+    # Get the string parsed and cleaned into array
+    current_state = clean_initial_string(initial_input)
+    print(current_state)
+    # Get the goal string parsed and cleaned into array
+    goal_state = clean_goal_string(goal_input)
 
     # test ---
-    #print(goal_string)
+    # print(current_state)
+    # print("\n")
+    # print(goal_state)
 
-    # return the array
-    return goal_string
+    queue = [(acumulated_cost, current_state)]
 
+    #while queue:
 
 # -----------------------------------------------------------------------------
 # Start
@@ -119,10 +119,6 @@ if __name__ == '__main__':
 #
 # def Prev_State:
 #
-# # Returns cost of an action
-# def Path_cost(action):
-#     cost = pick + put + abs(action[0] - action[1])
-#
 # def State(Prev_State):
 #     st = [stack0, stack1, stack2]
 #
@@ -133,24 +129,3 @@ if __name__ == '__main__':
 #
 # # Method to check if the state is equal to the goal
 #
-
-# -----------------------------------------------------------------------------
-# # Uniform Cost Search
-# -----------------------------------------------------------------------------
-
-def ucs(max_height, initial_input, goal_input, initial_cost):
-    # Queue and visited nodes
-    queue = []
-    visited = []
-
-	# Get the string parsed and cleaned into array
-	current_state = clean_initial_string(initial_input)
-    # Get the goal string parsed and cleaned into array
-	goal_state = clean_goal_string(goal_input)
-
-    # test ---
-    # print(current_state)
-    # print("\n")
-    # print(goal_state)
-
-    que

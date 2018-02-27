@@ -3,10 +3,10 @@
 class Search_Node:
 
     # Constructor
-    def __init__(self, parent, action, path_cost, state, cost):
+    def __init__(self, parent, action, state, cost):
         self.parent = parent
         self.action = action
-        self.path_cost = parent.cost
+        #self.path_cost = path_cost
         self.state = state
         self.cost = cost
 
@@ -19,4 +19,4 @@ class Search_Node:
         # cost is the cost of the parent plus cost of the action
         cost = parent.cost + Path_cost
 
-    
+        
