@@ -1,6 +1,7 @@
 # -----------------------------------------------------------------------------
-# Christian Ricardo Solís Cortés
+# Christian Ricardo Solís Cortés & Eduardo Josué Contreras Álvarez
 # A01063685
+# A01064882
 # Artificial Intelligence
 # Assignment: (Un)informed Search Lab
 # The Container Crane Problem
